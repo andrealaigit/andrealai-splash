@@ -31,11 +31,11 @@ body{background:var(--ink); color:var(--paper);
 .stage{position:relative; z-index:1; min-height:100svh; display:grid; grid-template-rows:48svh auto;}
 
 .portrait{position:relative; margin:0; overflow:hidden;}
-.portrait img{width:100%; height:100%; object-fit:contain; object-position:center bottom; display:block;
-  -webkit-mask-image:radial-gradient(115% 100% at 50% 62%, #000 10%, rgba(0,0,0,.72) 42%, rgba(0,0,0,.32) 66%, rgba(0,0,0,.08) 84%, transparent 100%);
-  mask-image:radial-gradient(115% 100% at 50% 62%, #000 10%, rgba(0,0,0,.72) 42%, rgba(0,0,0,.32) 66%, rgba(0,0,0,.08) 84%, transparent 100%);}
+.portrait img{width:100%; height:100%; object-fit:contain; object-position:right center; display:block;
+  -webkit-mask-image:radial-gradient(92% 90% at 80% 44%, #000 36%, rgba(0,0,0,.5) 64%, rgba(0,0,0,.1) 84%, transparent 100%);
+  mask-image:radial-gradient(92% 90% at 80% 44%, #000 36%, rgba(0,0,0,.5) 64%, rgba(0,0,0,.1) 84%, transparent 100%);}
 .portrait::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:radial-gradient(120% 100% at 50% 60%, rgba(0,0,0,0) 34%, rgba(0,0,0,.5) 66%, var(--ink) 92%);}
+  background:radial-gradient(96% 94% at 80% 44%, rgba(0,0,0,0) 32%, rgba(0,0,0,.42) 66%, var(--ink) 94%);}
 
 .content{position:relative; display:flex; align-items:center; padding:clamp(1.6rem,6vw,4rem) clamp(1.4rem,7vw,5rem) clamp(2.2rem,6vw,4rem);}
 .col{position:relative; z-index:1; width:100%; max-width:40rem; display:flex; flex-direction:column; gap:clamp(1.1rem,3vw,1.7rem);}
@@ -148,6 +148,7 @@ body{background:var(--ink); color:var(--paper);
 (function(){
   var el=document.getElementById('lai'); if(!el) return;
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
   var dpr=Math.min(window.devicePixelRatio||1,2);
   var cv,ctx,parts,W,H,col,mx=-1e5,my=-1e5,active=false,raf,fsCur;
   function build(){
